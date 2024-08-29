@@ -3,7 +3,7 @@
 
 ## Description
 
-A LAN device discovery app. Basically an [arp](https://man7.org/linux/man-pages/man8/arp.8.html) wrapper with simple REST apis and event emitters.
+A LAN device discovery app. Basically a NestJS wrapper around [arp](https://man7.org/linux/man-pages/man8/arp.8.html) with simple REST apis and event emitters.
 
 ## Requirements
 - [arp](https://man7.org/linux/man-pages/man8/arp.8.html)
