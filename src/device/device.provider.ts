@@ -1,6 +1,6 @@
 import { DataSource } from 'typeorm';
 import { Device } from './device.entity';
-import { DATA_SOURCE, DEVICE_REPOSITORY } from 'src/constants';
+import { DATA_SOURCE, DEVICE_REPOSITORY } from '../../src/constants';
 
 export const deviceProviders = [
   {
