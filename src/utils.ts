@@ -36,3 +36,11 @@ export const randomMacAddress = () => {
 export const randomIP = () => Array(4).fill(0).map(
   (_, i) => Math.floor(Math.random() * 255) + (i === 0 ? 1 : 0)
 ).join('.');
+
+export const sortDeviceArray = (devices) => {
+  return devices.sort((a, b) => {
+      const aMac = a.macAddress;
+      const bMac = b.macAddress;
+      return aMac < bMac ? -1 : aMac > bMac;
+  });
+}
