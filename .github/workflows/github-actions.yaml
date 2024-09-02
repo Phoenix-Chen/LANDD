@@ -28,7 +28,7 @@ jobs:
         with:
           node-version: '22.x'
       - run: npm install
-      - run: npm test:e2e
+      - run: npm run test:e2e
   unit-test:
     needs: build
     runs-on: ubuntu-latest
@@ -40,4 +40,4 @@ jobs:
         with:
           node-version: '22.x'
       - run: npm install
-      - run: npm test:e2e  
+      - run: npm run test  
