@@ -1,7 +1,7 @@
 import { Test, TestingModule } from '@nestjs/testing';
 import { DeviceService } from "./device.service";
 import { DeviceModule } from './device.module';
-import { randomMacAddress, randomIP } from '../../src/utils';
+import { randomMacAddress, randomIP, sortDeviceArray } from '../../src/utils';
 import { DataSource } from 'typeorm';
 import { Device } from './device.entity';
 import { UpdateOrCreateDto } from './dto/patch-device.dto';
@@ -76,11 +76,11 @@ describe('DeviceService', () => {
         }
       ];
       expect(
-        await deviceService.bulkUpdateOrCreate(expectDevices)
-      ).toEqual(expectDevices);
+        sortDeviceArray(await deviceService.bulkUpdateOrCreate(expectDevices))
+      ).toEqual(sortDeviceArray(expectDevices));
       return expect(
-          await deviceDataSource.manager.getRepository(Device).find()
-      ).toEqual([newDevice1, ...expectDevices]);
+        sortDeviceArray(await deviceDataSource.manager.getRepository(Device).find())
+      ).toEqual(sortDeviceArray([newDevice1, ...expectDevices]));
     });
   });
 });

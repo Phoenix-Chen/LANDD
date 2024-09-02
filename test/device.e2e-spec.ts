@@ -5,7 +5,7 @@ import { DataSource } from 'typeorm';
 
 import { Device } from '../src/device/device.entity';
 import { DeviceModule } from '../src/device/device.module';
-import { randomMacAddress, randomIP } from '../src/utils';
+import { randomMacAddress, randomIP, sortDeviceArray } from '../src/utils';
 
 describe('DeviceController (e2e)', () => {
   let app: INestApplication;
@@ -105,7 +105,8 @@ describe('DeviceController (e2e)', () => {
       const response = await request(app.getHttpServer())
         .get(`/device?macAddress_in=${device1.macAddress},${device2.macAddress}`);
       expect(response.status).toEqual(200);
-      return expect(response.body.sort()).toEqual([device2, device1].sort());
+      return expect(sortDeviceArray(response.body))
+        .toEqual(sortDeviceArray([device2, device1]));
     });
   });
 
