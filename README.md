@@ -11,12 +11,51 @@ A LAN device discovery app. Basically a NestJS wrapper around [arp](https://man7
 
 ## REST Endpoints
 
-GET /device
-```
+### GET /device
+Get devices.
+#### Parameter
+* `?online=`: boolean
+* `?macAddress_in=`: String array separated by `,`. e.g. `61:d7:3d:c4:4d:95,db:73:5f:13:14:05`
+#### Example Response
+* Status: 200
+* Content-Type: "application/json"
+```json
+[
+    {
+        "macAddress": "61:d7:3d:c4:4d:95",
+        "name": null,
+        "ip": "192.168.1.2",
+        "online": true,
+    },
+    {
+        "macAddress": "db:73:5f:13:14:05",
+        "name": null,
+        "ip": "192.168.1.3",
+        "online": false,
+    },
+    ...
+]
 ```
 
-PATCH /device/:macAddress
+### PATCH /device/:macAddress
+Patch the name of device.
+#### Payload
+* Content-Type: "application/json"
+```json
+{
+    "name": "My new iPhone",
+}
 ```
+#### Example Response
+* Status: 200
+* Content-Type: "application/json"
+```json
+{
+    "macAddress": "61:d7:3d:c4:4d:95",
+    "name": "My new iPhone",
+    "ip": "192.168.1.2",
+    "online": true,
+}
 ```
 
 ## Events
