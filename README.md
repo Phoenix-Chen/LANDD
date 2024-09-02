@@ -7,7 +7,7 @@ A LAN device discovery app. Basically a NestJS wrapper around [arp](https://man7
 
 ## Requirements
 - [arp](https://man7.org/linux/man-pages/man8/arp.8.html)
-- [nmap](https://nmap.org/download) (Probably will remove dependency on nmap in future)
+- [nmap](https://nmap.org/download) (Likely to remove dependency on nmap in future)
 
 ## REST Endpoints
 
