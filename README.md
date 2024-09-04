@@ -33,7 +33,6 @@ Get devices.
         "ip": "192.168.1.3",
         "online": false,
     },
-    ...
 ]
 ```
 
@@ -63,4 +62,14 @@ Patch the name of device.
 This app provides 2 types of event: 
 - `Device Connect`: Triggers when device connects to the network.
 - `Device Disconnect`: Triggers when device disconnects from the network.
+
+You can overwrite the listener functions with custom event handler logic [here](https://github.com/Phoenix-Chen/LANDD/blob/master/src/listeners/device-event.listener.ts). The event payload represents single device in the format of:
+```json
+{
+    "macAddress": "61:d7:3d:c4:4d:95",
+    "name": "My new iPhone",
+    "ip": "192.168.1.2",
+    "online": true,
+}
+```
 
